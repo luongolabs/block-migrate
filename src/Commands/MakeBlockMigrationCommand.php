@@ -11,7 +11,6 @@ use InvalidArgumentException;
 /**
  * This is mainly from https://github.com/spatie/laravel-settings/blob/main/src/Console/MakeSettingsMigrationCommand.php
  */
-
 class MakeBlockMigrationCommand extends Command
 {
     protected $signature = 'make:block-migration {name : The name of the migration} {path? : Path to write migration file to}';
@@ -75,7 +74,7 @@ EOT;
     protected function ensureMigrationDoesntAlreadyExist($name, $migrationPath = null): void
     {
         if (! empty($migrationPath)) {
-            $migrationFiles = $this->files->glob($migrationPath . '/*.php');
+            $migrationFiles = $this->files->glob($migrationPath.'/*.php');
 
             foreach ($migrationFiles as $migrationFile) {
                 $this->files->requireOnce($migrationFile);
@@ -89,7 +88,7 @@ EOT;
 
     protected function getPath($name, $path): string
     {
-        return $path . '/' . Carbon::now()->format('Y_m_d_His') . '_' . Str::snake($name) . '.php';
+        return $path.'/'.Carbon::now()->format('Y_m_d_His').'_'.Str::snake($name).'.php';
     }
 
     protected function resolveMigrationPaths(): array

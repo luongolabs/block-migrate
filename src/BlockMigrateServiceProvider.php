@@ -2,9 +2,9 @@
 
 namespace LuongoLabs\BlockMigrate;
 
+use LuongoLabs\BlockMigrate\Commands\MakeBlockMigrationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use LuongoLabs\BlockMigrate\Commands\MakeBlockMigrationCommand;
 
 class BlockMigrateServiceProvider extends PackageServiceProvider
 {
@@ -21,7 +21,8 @@ class BlockMigrateServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeBlockMigrationCommand::class);
     }
 
-    public function boot(): void {
+    public function boot(): void
+    {
         parent::boot();
         // This needs to loaded here instead of in the configurePackage method
         // because the migrations paths are not yet resolved at that point

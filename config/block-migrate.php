@@ -12,5 +12,4 @@ return [
         database_path('blocks'),
     ],
 
-
 ];
